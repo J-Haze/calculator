@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono&display=swap");
+*{
+    font-family: "Fire Mono", monospace, sans-serif;
+}
+
+#calculator{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    width: 400px;
+    min-width: 400px;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+#display{
+    display: flex;
+    height: 150px;
+    padding-right: 2px;
+    font-size: 3.5em;
+    vertical-align: bottom;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-bottom: 3px solid black;
+    padding-bottom: 0px;
+    background-color: lightgray;
+}
+
+.row{
+    /* height: 50px; */
+    display: flex;
+}
+
+.btn{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    font-size: 2em;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.btn:hover{
+    color: rgb(116, 110, 110);
+    cursor: pointer;
+}
+
+#rowOne{
+    /* border: 1px solid red; */
+}
+#rowTwo{
+    /* border: 1px solid blue; */
+}
+#rowThree{
+    /* border: 1px solid orange; */
+}
+#rowFour{
+    /* border: 1px solid purple; */
+}
+#rowFive{
+    /* border: 1px solid yellow; */
+}
+
+#dot{
+    display: flex;
+    justify-content: center;
+    align-items: flex-star;
+    padding-top: 6%;
+}
+
+.top{
+    background-color: cornflowerBlue;
+}
+
+.digit{
+    background-color: DarkGray;
+}
+
+.operator{
+    background-color: goldenrod;
+}
