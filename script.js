@@ -18,6 +18,7 @@ function divide(a,b){
     return answer
 }
 
+
 // function power(a,b){
 // 	power = Math.pow(a,b);
 //   return power
@@ -53,11 +54,9 @@ function operate(storedOperator,storedNumber,displayedNumber){
        return divide(num1,num2)
     }
     if (storedOperator == "="){
-
+      
     }
 }
-
-// console.log('test ', operate('+',[1,3,5]))
 
 const display = document.querySelector('#display');
 const buttons = document.querySelector('.btn');
@@ -68,78 +67,43 @@ let enteredNumber = "";
 let storedNumber = 0;
 let displayedNumber = 0;
 let storedOperator = "+"
-// let arr = [stored,displayed,entered];
-// let first = 0;
 
-// displayText = displayedNumber;
 
 display.innerHTML = displayedNumber;
 
-// let buttonValues = [
-//   {'1'}
-// ]
 
 
 
 
 operators.forEach(operator => operator.addEventListener('click', () => {
-  console.log("storedOperator: ", storedOperator, "storedNumber: ", storedNumber, "displayedNumber: ", displayedNumber)
+  console.log("storedOperator1: ", storedOperator, "storedNumber1: ", storedNumber, "displayedNumber1: ", displayedNumber, "enteredNumber1:", enteredNumber)
   displayedNumber = operate(storedOperator,storedNumber,displayedNumber);
   display.innerHTML = displayedNumber;
 
-  storedOperator = operator.firstChild.nodeValue;
-
-  storedNumber = displayedNumber;
-
-  enteredNumber = ""
+  if (operator.firstChild.nodeValue != "="){
+    storedOperator = operator.firstChild.nodeValue;
+    storedNumber = displayedNumber;
+    enteredNumber = Number(0);
+  } else {
+    storedOperator = "+";
+    storedNumber = Number(0);
+    enteredNumber = Number(displayedNumber);
+  }
   
-  // displayed = stored;
-  // arr = [stored,displayed,entered];
-  // displayText = arr[1];
-  // display.innerHTML = displayText;
+  console.log("storedOperator2: ", storedOperator, "storedNumber2: ", storedNumber, "displayedNumber2: ", displayedNumber, "enteredNumber2:", enteredNumber)
 
-  // //calculate new stored value
-  // action = operator.firstChild.nodeValue;
-  // stored = operate(action, arr);
-  // arr = [stored,displayed,entered];
-  // first = first + 1;
-  
-  // displayText = arr[1];
-  // display.innerHTML = displayText; //eventaully move this to the start of this event listener
-  // console.log('operator value: ', operator.firstChild.nodeValue)
-  // console.log('operator type ', typeof operator.firstChild.nodeValue);
-  // action = operator.firstChild.nodeValue;
-  // console.log('action: ', action);
-  // console.log('action type ', typeof action);
-
-  // a = b;
-  // // arr = [a,b];
-  // b = operate(action, arr);
-  // arr = [a,b];
-  // // displayText = arr[1];
-  // console.log(arr)
 }));
 
 digits.forEach(digit => digit.addEventListener('click', () => {
   console.log('button value: ', digit.firstChild.nodeValue)
-  //code about appending or starting a new number (if number then append, etc)
-  // if (first==0){stored = digit.firstChild.nodeValue
-  // } else{
-  //     stored = displayed;
-  // }
+
   console.log("enteredNumber1: ", enteredNumber)
 
-  enteredNumber = enteredNumber + digit.firstChild.nodeValue;
+  enteredNumber = Number(enteredNumber + digit.firstChild.nodeValue);
   console.log("enteredNumber2: ", enteredNumber)
 
   displayedNumber = enteredNumber;
   display.innerHTML = displayedNumber;
   console.log("displayeNumber: ", displayedNumber);
 
-  //need to append an active string for b, because b can be double digits
-  //also make it work for '.' (if . then append (in opperation if 2. then add 0 to make 2.0))
-  // arr = [stored,displayed,entered];
-  // displayText = arr[1];
-  // display.innerHTML = displayText;
-  // console.log(arr)
 }));
