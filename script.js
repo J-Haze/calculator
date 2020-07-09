@@ -40,7 +40,7 @@ function operate(storedOperator,storedNumber,displayedNumber){
   num1 = Number(storedNumber);
   console.log("type", typeof(num1))
   num2 = Number(displayedNumber);
-  storedOperator = storedOperator;
+  // storedOperator = storedOperator;
   if (storedOperator == "+"){
       return add(num1,num2)
     }
@@ -48,8 +48,7 @@ function operate(storedOperator,storedNumber,displayedNumber){
        return subtract(num1,num2)
     }
     if (storedOperator == "X"){
-      console.log("Num1:", num1, "type1:", typeof(num1), "type2:", "Num2: ", num2, typeof(num2))
-      // return (num1 * num2)
+      // console.log("Num1:", num1, "type1:", typeof(num1), "type2:", "Num2: ", num2, typeof(num2))
       return multiply(num1,num2)
     }
     if (storedOperator == "/"){
@@ -65,21 +64,115 @@ const digits = document.querySelectorAll('.digit');
 const operators = document.querySelectorAll('.operator');
 const topBtns = document.querySelectorAll('.top');
 
+// buttons.forEach(button => button.addEventListener('click', () => {
+//   button.classList.add("selected");
+// }));
+
 let enteredNumber = "";
 let storedNumber = 0;
 let displayedNumber = 0;
-let storedOperator = "+"
+let storedOperator = "+";
+let equalSign = "false";
 
 display.innerHTML = displayedNumber;
 
+function clear(){
+  enteredNumber = "";
+  storedNumber = 0;
+  displayedNumber = 0;
+  storedOperator = "+"
+  display.innerHTML = displayedNumber;
+  equalSign = "false";
+}
+
+function dig(value){
+  console.log("length:", enteredNumber.length )
+
+  checkString = String(enteredNumber); //converts to a string
+  if (checkString.length < 12){
+  console.log('button value: ', value, typeof(value))
+
+  console.log("enteredNumber1: ", enteredNumber, typeof(enteredNumber))
+  console.log('storedNumber: ', storedNumber)
+  console.log('storedOperator: ', storedOperator)
+  if (equalSign == true){clear()};
+
+  // if(checkString[enteredNumber.length-1] == "0" &&  checkString[enteredNumber.length-2] == "."){
+  //   enteredNumber = toString(enteredNumber).slice(0,-1);} //removes 0 if there is a "."
+
+  // enteredNumber = String(enteredNumber);
+  enteredNumber = enteredNumber + value;
+  // enteredNumber = String(enteredNumber);
+  console.log("enteredNumber2: ", enteredNumber)
+
+  displayedNumber = enteredNumber;
+  display.innerHTML = displayedNumber;
+  console.log("displayeNumber: ", displayedNumber);
+
+  // if(enteredNumber[enteredNumber.length-1] == "."){
+  //   console.log("concate 0: ", enteredNumber, typeof(enteredNumber))
+  //   enteredNumber = enteredNumber.concat("0"); //if the last char is a "." then it adds a "0" so that the math still works
+  //   console.log("concate 0_1: ", enteredNumber, typeof(enteredNumber))
+  // };
+  
+  enteredNumber = String(enteredNumber);
+
+// if(enteredNumber.includes(".")){
+//   enteredNumber = parseFloat(enteredNumber).toFixed(enteredNumber.split('.')[1].length); //converts to a number again
+//   console.log("concate 0_2: ", enteredNumber, typeof(enteredNumber))
+//   }
+
+
+  // else{
+  //   enteredNumber = Number(enteredNumber);
+  // }
+  console.log("Final Type: ", typeof(enteredNumber))
+  }
+}
+
+function dott(){
+
+}
+
+function op(value) {
+  console.log("storedOperator1: ", storedOperator, "storedNumber1: ", storedNumber, "displayedNumber1: ", displayedNumber, "enteredNumber1:", enteredNumber, typeof(enteredNumber))
+  
+  //converts to a number
+  //has issues because you can't use "includes" on a Number
+  checkDot = String(enteredNumber)
+  if(checkDot.includes(".")){
+    enteredNumber = String(enteredNumber);
+    enteredNumber = parseFloat(enteredNumber).toFixed(enteredNumber.split('.')[1].length);
+    enteredNumber = Number(enteredNumber);
+  }else{
+    // storedNumber = Number(enteredNumber);
+    enteredNumber = Number(enteredNumber);
+  };
+  console.log("Converted Type: ", typeof(enteredNumber))
+
+  displayedNumber = operate(storedOperator,storedNumber,displayedNumber);
+  display.innerHTML = displayedNumber;
+
+  if (value != "="){
+    storedOperator = value;
+    storedNumber = Number(displayedNumber);
+    // enteredNumber = Number(0);
+    // enteredNumber = Number("");
+    enteredNumber = "";
+    equalSign = false;
+  } else {
+    storedOperator = "+";
+    equalSign = true;
+    storedNumber = Number(0);
+    // enteredNumber = Number(displayedNumber);
+    enteredNumber = Number(displayedNumber);
+  };
+  console.log("storedOperator2:", storedOperator, "storedNumber2:", storedNumber, "displayedNumber2:", displayedNumber, "enteredNumber2:", enteredNumber)
+}
 
 topBtns.forEach(top => top.addEventListener('click', () => {
 if (top.firstChild.nodeValue == "A/C"){
-    enteredNumber = "";
-    storedNumber = 0;
-    displayedNumber = 0;
-    storedOperator = "+"
-    display.innerHTML = displayedNumber;
+  clear();
 } else if (top.firstChild.nodeValue == "⇤"){
     enteredNumber = String(enteredNumber);
     enteredNumber = Number(enteredNumber.substring(0, enteredNumber.length-1));
@@ -99,35 +192,12 @@ if (top.firstChild.nodeValue == "A/C"){
 }));
 
 operators.forEach(operator => operator.addEventListener('click', () => {
-  console.log("storedOperator1: ", storedOperator, "storedNumber1: ", storedNumber, "displayedNumber1: ", displayedNumber, "enteredNumber1:", enteredNumber)
-
-  displayedNumber = operate(storedOperator,storedNumber,displayedNumber);
-  display.innerHTML = displayedNumber;
-
-  if (operator.firstChild.nodeValue != "="){
-    storedOperator = operator.firstChild.nodeValue;
-    storedNumber = Number(displayedNumber);
-    enteredNumber = Number(0);
-  } else {
-    storedOperator = "+";
-    storedNumber = Number(0);
-    enteredNumber = Number(displayedNumber);
-  }
-  console.log("storedOperator2: ", storedOperator, "storedNumber2: ", storedNumber, "displayedNumber2: ", displayedNumber, "enteredNumber2:", enteredNumber)
-
+  op(operator.firstChild.nodeValue);
 }));
 
 digits.forEach(digit => digit.addEventListener('click', () => {
-  console.log('button value: ', digit.firstChild.nodeValue)
-
-  console.log("enteredNumber1: ", enteredNumber)
-  console.log('storedNumber: ', storedNumber)
-
-  enteredNumber = Number(enteredNumber + digit.firstChild.nodeValue);
-  console.log("enteredNumber2: ", enteredNumber)
-
-  displayedNumber = enteredNumber;
-  display.innerHTML = displayedNumber;
-  console.log("displayeNumber: ", displayedNumber);
-
+  dig(digit.firstChild.nodeValue);
 }));
+
+
+

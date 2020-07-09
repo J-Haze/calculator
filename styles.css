@@ -2,6 +2,9 @@
 *{
     font-family: "Fire Mono", monospace, sans-serif;
 }
+/* body{
+    background-color: #c4b3c7;
+} */
 
 #calculator{
     margin-top: 50px;
@@ -27,6 +30,12 @@
     border-bottom: 3px solid black;
     padding-bottom: 0px;
     background-color: lightgray;
+    /* word-wrap: break-word;
+    word-break: break-all;
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: pre-wrap; */
 }
 
 .row{
@@ -85,4 +94,10 @@
 
 #back{
     font-size: 3.3em;
+}
+
+.selected{
+    background-color: black;
+    color: white;
+    border-radius: 50%;
 }
