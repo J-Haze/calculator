@@ -1,11 +1,15 @@
 function add(a,b) {
-	const add = a + b;
-	return add
+  a = a*1000000;
+  b = b*1000000;
+  const add = a + b;
+	return add/1000000
 };
 
 function subtract(a,b) {
-	const subtract = a - b;
-	return subtract
+  a = a*1000000;
+  b = b*1000000;
+  const subtract = a - b;
+	return subtract/1000000
 };
 
 function multiply(a,b) {
@@ -40,6 +44,7 @@ function operate(storedOperator,storedNumber,displayedNumber){
   num1 = Number(storedNumber);
   console.log("type", typeof(num1))
   num2 = Number(displayedNumber);
+
   // storedOperator = storedOperator;
   if (storedOperator == "+"){
       answer = add(num1,num2)
