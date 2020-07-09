@@ -42,20 +42,26 @@ function operate(storedOperator,storedNumber,displayedNumber){
   num2 = Number(displayedNumber);
   // storedOperator = storedOperator;
   if (storedOperator == "+"){
-      return add(num1,num2)
+      answer = add(num1,num2)
     }
     if (storedOperator == "-"){
-       return subtract(num1,num2)
+      answer = subtract(num1,num2)
     }
     if (storedOperator == "X"){
       // console.log("Num1:", num1, "type1:", typeof(num1), "type2:", "Num2: ", num2, typeof(num2))
-      return multiply(num1,num2)
+      answer = multiply(num1,num2)
     }
     if (storedOperator == "/"){
-       return divide(num1,num2)
+      answer = divide(num1,num2)
     }
     if (storedOperator == "="){
     }
+    checkAnswer = String(answer)
+    if (checkAnswer.length > 12){
+    answer = answer.toExponential(2);
+  }
+  console.log("string:", checkAnswer, "length:", checkAnswer.length, "answer:", answer)
+  return answer
 }
 
 const display = document.querySelector('#display');
@@ -87,7 +93,6 @@ function clear(){
 
 function dig(value){
   console.log("length:", enteredNumber.length )
-
   checkString = String(enteredNumber); //converts to a string
   if (checkString.length < 12){
   console.log('button value: ', value, typeof(value))
@@ -95,6 +100,10 @@ function dig(value){
   console.log("enteredNumber1: ", enteredNumber, typeof(enteredNumber))
   console.log('storedNumber: ', storedNumber)
   console.log('storedOperator: ', storedOperator)
+
+  if(value == "." && checkString.includes(".")){
+    return
+  };
   if (equalSign == true){clear()};
 
   // if(checkString[enteredNumber.length-1] == "0" &&  checkString[enteredNumber.length-2] == "."){
@@ -130,9 +139,6 @@ function dig(value){
   }
 }
 
-function dott(){
-
-}
 
 function op(value) {
   console.log("storedOperator1: ", storedOperator, "storedNumber1: ", storedNumber, "displayedNumber1: ", displayedNumber, "enteredNumber1:", enteredNumber, typeof(enteredNumber))
