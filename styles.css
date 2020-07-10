@@ -2,20 +2,19 @@
 *{
     font-family: "Fire Mono", monospace, sans-serif;
 }
-/* body{
-    background-color: #c4b3c7;
-} */
+body{
+    background:hsl(294, 51%, 92%);
+}
 
 #calculator{
-    margin-top: 50px;
+    margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: column;
-    border: 1px solid green;
     width: 400px;
     min-width: 400px;
-    border: 3px solid black;
+    border: 10px solid black;
     border-radius: 5px;
 }
 
@@ -30,26 +29,22 @@
     border-bottom: 3px solid black;
     padding-bottom: 0px;
     background-color: lightgray;
-    /* word-wrap: break-word;
-    word-break: break-all;
-    overflow: scroll;
-    overflow-y: auto;
-    overflow-x: hidden;
-    white-space: pre-wrap; */
 }
 
 .row{
-    /* height: 50px; */
     display: flex;
 }
 
-.btn{
+button {
     width: 100px;
     height: 100px;
     margin: auto;
     font-size: 2em;
     font-weight: bold;
     border: 1px solid black;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
 }
 
 .btn:hover{
@@ -57,27 +52,19 @@
     cursor: pointer;
 }
 
-#rowOne{
-    /* border: 1px solid red; */
-}
-#rowTwo{
-    /* border: 1px solid blue; */
-}
-#rowThree{
-    /* border: 1px solid orange; */
-}
-#rowFour{
-    /* border: 1px solid purple; */
-}
-#rowFive{
-    /* border: 1px solid yellow; */
-}
-
 #dot{
     display: flex;
     justify-content: center;
     align-items: flex-star;
     padding-top: 6%;
+}
+
+#divide{
+    font-size: 2.5em;
+}
+
+#subtract{
+    font-size: 2.5em;
 }
 
 .top{
@@ -96,8 +83,37 @@
     font-size: 3.3em;
 }
 
-.selected{
-    background-color: black;
-    color: white;
-    border-radius: 50%;
+.digit:active{
+    color: black;
+    background-color: rgb(117, 117, 117);
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+}
+
+.top:active{
+    color: black;
+    background-color: rgb(54, 116, 231);
+}
+
+.operator:active{
+    color: black;
+    background-color: rgb(191, 147, 36);
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+#signature{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    min-width: 400px;
+    justify-content: flex-end;
+    align-items: flex-end;  
 }
