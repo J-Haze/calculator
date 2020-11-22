@@ -1,2 +1,4 @@
 # calculator
-Calculator project for The Odin Project
+Calculator App
+
+Demo: https://j-haze.github.io/calculator/
