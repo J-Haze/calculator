@@ -1,5 +1,3 @@
-Demo: https://j-haze.github.io/calculator/
-
 ## Calculator
 Calculator App using JavaScript.
 
