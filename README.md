@@ -15,7 +15,7 @@ HTML, CSS, JavaScript
 ### Notable Features: ###
 
 * Basic Calculator Functions
-** Add, Subtract, Multiply, Divide, Percentage, Decimals, Clear, Backspace
+  * Add, Subtract, Multiply, Divide, Percentage, Decimals, Clear, Backspace
 * Scientific Notation
 
 ### Picture: ###
