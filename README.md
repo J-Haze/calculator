@@ -15,10 +15,9 @@ HTML, CSS, JavaScript
 ### Notable Features: ###
 
 * Basic Calculator Functions
-** Add, Subtract, Multiply, Divide, 
-* Change drawing mode between solid and gradient.
-* Erase specific squares or clear the whole board.
+** Add, Subtract, Multiply, Divide, Percentage, Decimals, Clear, Backspace
+* Scientific Notation
 
-### My web toy in action: ###
+### Picture: ###
 
 ![Image of App](./images/ReadMe1.png)
