@@ -8,7 +8,9 @@ The purpose of this project was to create a functional calculator app, while all
 
 ### Demonstrated Knowledge Of: ###
 
-HTML, CSS, JavaScript
+* JavaScript
+* HTML
+* CSS
 
 ### Notable Features: ###
 
