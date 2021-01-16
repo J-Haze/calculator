@@ -3,9 +3,6 @@ Calculator App using JavaScript.
 
 🔗 **Live preview** of the app is [here](https://j-haze.github.io/calculator/).
 
-### Purpose: ###
-The purpose of this project was to create a functional calculator app, while allowing me to practice and expand upon my knowledge of JavaScript.
-
 ### Demonstrated Knowledge Of: ###
 
 * JavaScript
